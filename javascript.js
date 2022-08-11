@@ -1,5 +1,5 @@
 /*
-Create function getComputerChoice, return rundom "Kamień", "Papier", "Nożyczki"
+Create function getComputerChoice, return random "Kamień", "Papier", "Nożyczki"
 
 Create function playRound - 1 round game; 
  - parameters: playerSelection and computerSelection
@@ -13,3 +13,13 @@ Create function game
  Use prompt() to get input from the user
 */
 
+function getComputerChoice() {
+	let choice = Math.floor(Math.random() * 3) + 1;
+	if ((choice === 1)) {
+		return "Kamień";
+	} else if ((choice === 2)) {
+		return "Papier";
+	} else {
+		return "Nożyce";
+	}
+}

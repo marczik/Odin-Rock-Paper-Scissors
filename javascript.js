@@ -28,28 +28,34 @@ function playRound(playerSelection, computerSelection) {
 	playerSelection = playerSelection.toLowerCase();
 
 	if (playerSelection === "kamień" && computerSelection === "nożyce") {
-		return "You win! Kamień pokonuje nożyce.";
+		return alert("You win! Kamień pokonuje nożyce.");
 	} else if (playerSelection === "kamień" && computerSelection === "papier") {
-		return "You lose! Papier pokonuje kamień.";
-	} else if (playerSelection === "kapier" && computerSelection === "kamień") {
-		return "You win! Papier pokonuje kamień.";
-	} else if (playerSelection === "kapier" && computerSelection === "nożyce") {
-		return "You lose! Nożyce pokonują papier.";
+		return alert("You lose! Papier pokonuje kamień.");
+	} else if (playerSelection === "papier" && computerSelection === "kamień") {
+		return alert("You win! Papier pokonuje kamień.");
+	} else if (playerSelection === "papier" && computerSelection === "nożyce") {
+		return alert("You lose! Nożyce pokonują papier.");
 	} else if (playerSelection === "nożyce" && computerSelection === "papier") {
-		return "You win! Nożyce pokonują papier.";
+		return alert("You win! Nożyce pokonują papier.");
 	} else if (playerSelection === "nożyce" && computerSelection === "kamień") {
-		return "You lose! Kamień pokonuje nożyce.";
+		return alert("You lose! Kamień pokonuje nożyce.");
 	} else if (
 		(playerSelection === "nożyce" && computerSelection === "nożyce") ||
 		(playerSelection === "kamień" && computerSelection === "kamień") ||
 		(playerSelection === "papier" && computerSelection === "papier")
 	) {
-		return "Remis";
+		return alert("Remis");
 	} else {
-		return "Wprowadź: kamień lub papier lub nożyce.";
+		return alert("Wprowadź: kamień lub papier lub nożyce.");
 	}
 }
 
-const playerSelection = "kAmień";
-const computerSelection = getComputerChoice();
-console.log(playRound(playerSelection, computerSelection));
+function game() {
+	for (let i = 0; i < 5; i++) {
+		if ((answer = prompt("Kamień? Papier? Nożyczki?", ""))) {
+			let playerSelection = answer;
+			let computerSelection = getComputerChoice();
+			playRound(playerSelection, computerSelection);
+		}
+	}
+}

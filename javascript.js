@@ -1,17 +1,8 @@
-/*
-Create function getComputerChoice, return random "Kamień", "Papier", "Nożyczki"
-
-Create function playRound - 1 round game; 
- - parameters: playerSelection and computerSelection
- - return: "Przegrałeś! Papier bije Kamień"
- - make function’s playerSelection parameter case-insensitive (so users can input rock, ROCK, RocK or any other variation).
-
-Create function game
- - call the playRound inside to play 5 round game that keeps score and reports a winner or loser at the end.
- - use loop to play those 5 rounds
- 
- Use prompt() to get input from the user
-*/
+let computerScore = 0;
+let playerScore = 0;
+const returnMainBtn = document.querySelector("#retry-btn");
+const body = document.querySelector("body");
+const title = document.querySelector(".title");
 
 function getComputerChoice() {
 	let choice = Math.floor(Math.random() * 3) + 1;
@@ -26,36 +17,56 @@ function getComputerChoice() {
 
 function playRound(playerSelection, computerSelection) {
 	playerSelection = playerSelection.toLowerCase();
+	const title = document.querySelector(".title");
 
 	if (playerSelection === "kamień" && computerSelection === "nożyce") {
-		return alert("You win! Kamień pokonuje nożyce.");
+		title.textContent = "You win! Kamień pokonuje nożyce.";
+		playerScore = ++playerScore;
+		keepScore();
 	} else if (playerSelection === "kamień" && computerSelection === "papier") {
-		return alert("You lose! Papier pokonuje kamień.");
+		title.textContent = "You lose! Papier pokonuje kamień.";
+		computerScore = ++computerScore;
+		keepScore();
 	} else if (playerSelection === "papier" && computerSelection === "kamień") {
-		return alert("You win! Papier pokonuje kamień.");
+		title.textContent = "You win! Papier pokonuje kamień.";
+		playerScore = ++playerScore;
+		keepScore();
 	} else if (playerSelection === "papier" && computerSelection === "nożyce") {
-		return alert("You lose! Nożyce pokonują papier.");
+		title.textContent = "You lose! Nożyce pokonują papier.";
+		computerScore = ++computerScore;
+		keepScore();
 	} else if (playerSelection === "nożyce" && computerSelection === "papier") {
-		return alert("You win! Nożyce pokonują papier.");
+		title.textContent = "You win! Nożyce pokonują papier.";
+		playerScore = ++playerScore;
+		keepScore();
 	} else if (playerSelection === "nożyce" && computerSelection === "kamień") {
-		return alert("You lose! Kamień pokonuje nożyce.");
+		title.textContent = "You lose! Kamień pokonuje nożyce.";
+		computerScore = ++computerScore;
+		keepScore();
 	} else if (
 		(playerSelection === "nożyce" && computerSelection === "nożyce") ||
 		(playerSelection === "kamień" && computerSelection === "kamień") ||
 		(playerSelection === "papier" && computerSelection === "papier")
 	) {
-		return alert("Remis");
-	} else {
-		return alert("Wprowadź: kamień lub papier lub nożyce.");
+		title.textContent = "Remis";
 	}
 }
 
-function game() {
-	for (let i = 0; i < 5; i++) {
-		if ((answer = prompt("Kamień? Papier? Nożyczki?", ""))) {
-			let playerSelection = answer;
-			let computerSelection = getComputerChoice();
-			playRound(playerSelection, computerSelection);
-		}
+function keepScore() {
+	let playerScoreBox = document.querySelector("#player-score");
+	let computerScoreBox = document.querySelector("#computer-score");
+	if (playerScore === 5 && computerScore < 5) {
+		const title = document.querySelector(".title");
+		title.textContent = "WYGRAŁEŚ!!!!!";
+		computerScore = 0;
+		playerScore = 0;
+	} else if (computerScore === 5 && playerScore < 5) {
+		const title = document.querySelector(".title");
+		title.textContent = "PRZEGRAŁEŚ :(";
+		computerScore = 0;
+		playerScore = 0;
 	}
+
+	playerScoreBox.textContent = playerScore;
+	computerScoreBox.textContent = computerScore;
 }

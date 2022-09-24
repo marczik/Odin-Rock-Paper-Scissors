@@ -1,0 +1,113 @@
+body {
+	display: flex;
+	flex-direction: column;
+	font-family: Roboto, sans-serif;
+	margin: 0;
+}
+
+.header {
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+	font-size: 30px;
+	font-weight: bold;
+	padding: 60px;
+	justify-content: center;
+	gap: 60px;
+	background-color: #1f2937;
+	color: #f9faf8;
+}
+.results {
+    display: flex;
+    flex-direction: column;
+}
+#score-label {
+    display: flex;
+    gap: 80px;
+}
+
+.label {
+    display: flex;
+    font-size: 30px;
+    
+}
+#score-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 0px;
+    
+  }
+
+.game {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 30px 80px 100px 80px;
+}
+
+.info-up {
+	padding: 20px;
+	font-size: 36px;
+	font-weight: bold;
+	color: #1f2937;
+}
+
+.info-down {
+	display: flex;
+	gap: 30px;
+	padding: 20px;
+}
+
+.card {
+	display: flex;
+	flex-direction: column;
+	width: 200px;
+	height: auto;
+	gap: 12px;
+	text-align: center;
+	color: #1f2937;
+	font-size: 18px;
+}
+.card2 {
+	display: flex;
+	flex-direction: column;
+	width: 200px;
+	height: auto;
+	gap: 12px;
+	text-align: center;
+	color: #1f2937;
+	font-size: 18px;
+}
+.card3 {
+	display: flex;
+	flex-direction: column;
+	width: 200px;
+	height: auto;
+	gap: 12px;
+	text-align: center;
+	color: #1f2937;
+	font-size: 18px;
+}
+
+
+.kamień {
+	border-radius: 8px;
+	border: 4px solid #3882f6;
+}
+.papier {
+	border-radius: 8px;
+	border: 4px solid #3882f6;
+}
+.nożyce {
+	border-radius: 8px;
+	border: 4px solid #3882f6;
+}
+
+
+
+.playing {
+	transform: scale(1.1);
+	border-color: #ffc600;
+	box-shadow: 0 0 1rem #ffc600;
+}
+
